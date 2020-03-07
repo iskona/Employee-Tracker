@@ -9,7 +9,9 @@
 
 ## Overview
 
-This is a command-line application that allows the user to:
+This is a node based command-line application that allows the user to store and update their employee's salary, manager, title and department information by connecting to a MySQL database. Using inquirer the application is able to both provide dynamic options pulled from the database and provide them as options to the user. Console.table was used to create an easy to read layout for printing out information to the screen.
+
+This application allows the user to:
 
   * Add departments, roles, employees
 
@@ -20,12 +22,6 @@ This is a command-line application that allows the user to:
   * Update employee managers
 
   * Delete departments, roles, and employees
-
-MySQL NPM package allows to connect to MySQL database and perform queries.
-
-Inquirer NPM package allows to interact with the user via the command-line.
-
-Console.table NPM package allows to format and print MySQL rows to the console.
 
 
 ## Purpose
