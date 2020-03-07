@@ -8,10 +8,12 @@ const {
     AddRole,
     addEmployee,
     viewQuery,
+    viewAll,
+    viewAllByDepartment,
     updateEmployeeRole,
     updateEmployeeManager,
     deleteQuery
-  } = require('./lib/queries');
+} = require('./lib/queries');
 
 const connection = mysql.createConnection({
     host: 'localhost',
@@ -23,7 +25,7 @@ const connection = mysql.createConnection({
 
 connection.connect((err) => {
     if (err) throw err;
-    printTitle("Employee Manager")
+    printTitle("Employee Managment")
     start();
 });
 
@@ -46,14 +48,12 @@ const start = () => {
             "View All Departments",
             "View All Roles",
             "View All Employees",
+            "View All by Department",
             "Update Employee Role",
             "Update Employee Manager",
             "Delete Department",
             "Delete Role",
             "Delete Employee",
-            // BONUS:
-            // "View All Employees by Manager",
-            // "View the Total Utilized Budget of a Department",
             "Exit"
         ]
     }).then(function (answer) {
@@ -79,7 +79,11 @@ const start = () => {
                 break;
 
             case "View All Employees":
-                viewQuery('employee', connection, start);
+                viewAll(connection, start);
+                break;
+
+            case "View All by Department":
+                viewAllByDepartment(connection, start);
                 break;
 
             case "Update Employee Role":
